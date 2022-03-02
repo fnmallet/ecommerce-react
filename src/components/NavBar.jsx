@@ -3,18 +3,15 @@ import CartWidget from './CartWidget'
 function NavBar() {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-xl navbar-light bg-light">
                 <div className="container-fluid">
-                    <div className="col-3">
+                    <div className="col-2">
                         <a className="navbar-brand" href="#">
-                                <img src="/assets/logos/logo.png" alt="logo" width="300" height="58" className="d-inline-block align-text-top" />
+                                <img src="/assets/logos/logo.png" alt="logo" width="200" height="40" className="d-inline-block align-text-top" />
                         </a>
                     </div>
-                    <div className="col-6">
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <div className="col-8">
+                        <div className="collapse navbar-collapse justify-content-center" >
                             <ul className="navbar-nav mb-2 mb-lg-0">
                                 <li className="nav-item"><a className="nav-link" href="#">Almacenamiento</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#">Fuentes</a></li>
@@ -25,7 +22,10 @@ function NavBar() {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-3 text-end">
+                    <div className="col-2 d-flex justify-content-end gap-2">
+                        <button className="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
                         <CartWidget />
                     </div>
                 </div>
