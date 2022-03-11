@@ -1,12 +1,14 @@
 import './App.css';
+import Header from './components/Header.jsx'
 import NavBar from './components/NavBar.jsx'
-import ItemListContainer from './components/ItemListContainer.jsx'
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
-    <div>
+    <div className="bg-light">
+        <Header />
         <NavBar />
-        <ItemListContainer />
+        <ItemListContainer greeting={"Lista de items"}/>
     </div>
   );
 }
