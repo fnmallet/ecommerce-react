@@ -11,9 +11,9 @@ function ItemCount({ id, stock, initial, onAdd }) {
 
     function remove() {
         if(!(amount === 1)) {
-            console.log(amount) // si amount vale n muestra que amount vale n
+            console.log("Previo a setAmount: " + amount) // si amount vale n muestra que amount vale n
             setAmount(amount - 1);
-            console.log("B: " + amount) // a pesar de que antes se llamó a setAmount, en vez de mostrar que amount vale n-1, muestra que vale n !!!
+            console.log("Después de setAmount: " + amount) // a pesar de que antes se llamó a setAmount, en vez de mostrar que amount vale n-1, muestra que vale n !!!
         };
     };
 
