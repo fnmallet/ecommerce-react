@@ -38,5 +38,3 @@ function ItemCount({ stock, initial, onAdd }) {
 }
 
 export default ItemCount;
-
-//<ItemCount id={ id } stock={ stock } initial= { initialAmount } onAdd={ addToCart } />

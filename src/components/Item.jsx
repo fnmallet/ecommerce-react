@@ -1,5 +1,3 @@
-import ItemCount from "./ItemCount";
-
 function Item({ title, price, pictureUrl }) {
     return (
         <div className="col">

@@ -1,38 +1,56 @@
 import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
+import ItemDetailContainer from "./ItemDetailContainer";
+import Loader from "./Loader";
 
-const products = [
-    { id: 0, title: "product 1", price: 100, stock: 5, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" },
-    { id: 1, title: "product 2", price: 200, stock: 4, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" },
-    { id: 2, title: "product 2", price: 500, stock: 2, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" },
-    { id: 3, title: "product 3", price: 300, stock: 1, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" }
+const items = [
+    { id: 0, title: "product 1", price: 100, description:"Descripción del producto", stock: 5, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" },
+    { id: 1, title: "product 2", price: 200, description:"Descripción del producto", stock: 4, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" },
+    { id: 2, title: "product 2", price: 500, description:"Descripción del producto", stock: 2, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" },
+    { id: 3, title: "product 3", price: 300, description:"Descripción del producto", stock: 1, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" }
 ]
 
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        if(products)
-            resolve(products);
-        else
-            reject("error al obtener los productos");
-    }, 2000);
-});
+const getItems = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(items)
+                resolve(items);
+            else
+                reject("error al obtener los productos");
+        }, 2000);
+    });
+}
 
 function ItemListContainer() {
-    const [products, setProducts] = useState([]);
+    const [items, setItems] = useState([]);
+    const [isItemsLoaded, setIsItemsLoaded] = useState(false);
 
     useEffect(() => {
-            promise.then((response) => {
-                setProducts(response)
+            getItems().then((response) => {
+                setItems(response);
+                setIsItemsLoaded(true);
             }).catch(error => console.log(error));
         }
     );
 
     return (
-        <div className="container mt-5">
-            <div className="row row-cols-1 row-cols-md-3 g-4">
-                <ItemList items={products} />
-            </div>
-        </div>
+        <>
+            { 
+                !isItemsLoaded && 
+                    <div className="d-flex justify-content-center">
+                        <Loader /> 
+                    </div>
+            }
+            {
+                isItemsLoaded &&
+                    <div className="container mt-5">
+                        <div className="row row-cols-1 row-cols-md-3 g-4">
+                            <ItemList items={items} />
+                        </div>
+                        <ItemDetailContainer />
+                    </div>
+            }
+        </>
     );
 };
 
