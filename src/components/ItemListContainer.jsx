@@ -1,20 +1,36 @@
-import ProductCard from "./ProductCard.jsx";
+import { useEffect, useState } from "react";
+import ItemList from "./ItemList";
 
-function ItemListContainer() {  
-    const products = [
-        { id: 0, name: "product 1", price: 100, stock: 5 },
-        { id: 1, name: "product 2", price: 200, stock: 4 },
-        { id: 2, name: "product 2", price: 500, stock: 2 },
-        { id: 3, name: "product 3", price: 300, stock: 1 }
-    ]
+const products = [
+    { id: 0, title: "product 1", price: 100, stock: 5, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" },
+    { id: 1, title: "product 2", price: 200, stock: 4, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" },
+    { id: 2, title: "product 2", price: 500, stock: 2, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" },
+    { id: 3, title: "product 3", price: 300, stock: 1, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" }
+]
+
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if(products)
+            resolve(products);
+        else
+            reject("error al obtener los productos");
+    }, 2000);
+});
+
+function ItemListContainer() {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+            promise.then((response) => {
+                setProducts(response)
+            }).catch(error => console.log(error));
+        }
+    );
 
     return (
         <div className="container mt-5">
             <div className="row row-cols-1 row-cols-md-3 g-4">
-                <ProductCard id={ products[0].id } name={ products[0].name } price={ products[0].price } stock={ products[0].stock } />
-                <ProductCard id={ products[1].id } name={ products[1].name } price={ products[1].price } stock={ products[1].stock } />
-                <ProductCard id={ products[2].id } name={ products[2].name } price={ products[2].price } stock={ products[2].stock } />
-                <ProductCard id={ products[3].id } name={ products[3].name } price={ products[3].price } stock={ products[3].stock } />
+                <ItemList items={products} />
             </div>
         </div>
     );
