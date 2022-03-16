@@ -1,31 +1,38 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
+import Loader from "./Loader";
+import { useParams } from "react-router-dom";
 
-const item = { id: 0, title: "product 1", price: 100, description:"Descripción del producto", stock: 5, pictureUrl:"http://placehold.jp/0466c8/ffffff/300x300.png" }
+const productsUrl = "/assets/json/products.json";
 
-const getItem = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (item)
-                resolve(item);
-            else
-                reject("error al obtener el producto");
-        }, 2000);
-    });
-}
+const getItems = () => {
+    return fetch(productsUrl);
+};
 
 function ItemDetailContainer() {
-    const [item, setItem] = useState({});
+    const [items, setItems] = useState({});
+    const [isItemLoaded, setIsItemsLoaded] = useState(false);
+    const { id } = useParams();
 
     useEffect(() => {
-        getItem().then((response) => {
-            setItem(response);
+        getItems()
+            .then((response) => { return response.json() })
+            .then((data) => {
+                setTimeout(() => { setItems(data); setIsItemsLoaded(true); }, 500);
         }).catch(error => console.log(error));
-    });
+    }, []);
 
     return (
         <>
-            <ItemDetail title={item.title} price={item.price} description={item.description} pictureUrl={item.pictureUrl} />
+                { 
+                isItemLoaded ?
+                    <div className="container mt-5 mb-5 w-75">
+                        <ItemDetail item={items.find(item => item.id === parseInt(id))} />
+                    </div> :
+                    <div className="d-flex justify-content-center">
+                        <Loader /> 
+                    </div>
+            }
         </>
     );
 };

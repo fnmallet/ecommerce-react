@@ -1,0 +1,75 @@
+[
+    {
+        "id": 0,
+        "title": "HDD WD Blue 1TB",
+        "price": 6500,
+        "category": "almacenamiento",
+        "description": "Western Digital es una marca de renombre mundial en almacenamiento de datos con la cual podés crear, experimentar y guardar contenidos a través de una amplia gama de dispositivos. La alta seguridad y rendimiento que brindan sus unidades la convierten en una de las empresas más elegidas del mercado.\nEl WD Blue WD10EZEX se caracteriza por su eficiencia y buen funcionamiento, que sumado a su reducido consumo energético lo vuelven un disco indispensable para funciones estándar.",
+        "stock": 2,
+        "pictureUrl": "/assets/images/hdd_wd_blue_1tb.png"
+    },
+    {
+        "id": 1,
+        "title": "SSD WD Blue 500GB",
+        "price": 11000,
+        "category": "almacenamiento",
+        "description": "Western Digital es una marca de renombre mundial en almacenamiento de datos con la cual podés crear, experimentar y guardar contenidos a través de una amplia gama de dispositivos.\nLa alta seguridad y rendimiento que brindan sus unidades la convierten en una de las empresas más elegidas del mercado. El WD Blue WDS500G2B0A está adaptado para que puedas acceder de forma rápida a tus documentos digitales gracias a su tecnología en estado sólido.",
+        "stock": 11,
+        "pictureUrl": "/assets/images/ssd_wd_blue_500gb.png",
+        "pictureUrlSmall": "/assets/images/ssd_wd_blue_500gb.png"
+    },
+    {
+        "id": 2,
+        "title": "Monitor LG LED 20 20MK400H-B VGA/HDMI",
+        "price": 500,
+        "category": "monitores",
+        "description": "LG busca entender a los usuarios para ofrecerles óptimas soluciones y nuevas experiencias a través de la evolución tecnológica. Disfrutá de la perfecta combinación de diseño, calidad y rendimiento que la empresa te ofrece en este monitor.\nCon tu pantalla LED no solo ahorrás energía, ya que su consumo es bajo, sino que vas a ver colores nítidos y definidos en tus películas o series favoritas.\nUna experiencia visual de calidad\nSus 19.5\" te van a resultar ideales en tu vida diaria, ya sea para estudiar o trabajar. Asimismo, su resolución de 1366 x 768 te permite disfrutar de momentos únicos gracias a una imagen de alta fidelidad. Una de sus virtudes es que posee pantalla antirreflejo, de esta manera no verás reflejado lo que está detrás de vos y vas a evitar forzar tu vista para enfocar el contenido. Su tiempo de respuesta de 2 ms lo hace ideal para gamers y cinéfilos porque es capaz de mostrar imágenes en movimiento sin halos o bordes borrosos.",
+        "stock": 5,
+        "pictureUrl": "/assets/images/monitor_lg_led_20.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Memoria RAM Kingston 4GB DDR4 2666Mhz",
+        "price": 4400,
+        "category": "memorias",
+        "description": "Con su tecnología DDR4, mejorará el desempeño de tu equipo, ya que aumentará la fluidez y la velocidad en la transferencia de datos ¡Optimizá al máximo el rendimiento de tu computadora y reducí el consumo energético!\nEsta memoria de formato DIMM es ideal para tu Computadoras de escritorio. ¡Instalala y comenzá a disfrutar de un óptimo funcionamiento!",
+        "stock": 17,
+        "pictureUrl": "/assets/images/ram_kingston_4gb_ddr4_2666mhz.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Memoria RAM Genérica 8GB DDR4 3200Mhz",
+        "price": 8000,
+        "category": "memorias",
+        "description": "Con su tecnología DDR4, mejorará el desempeño de tu equipo, ya que aumentará la fluidez y la velocidad en la transferencia de datos ¡Optimizá al máximo el rendimiento de tu computadora y reducí el consumo energético!\nEsta memoria de formato DIMM es ideal para tu Computadoras de escritorio. ¡Instalala y comenzá a disfrutar de un óptimo funcionamiento!",
+        "stock": 63,
+        "pictureUrl": "/assets/images/ram_generica_8gb_ddr4_3200mhz.png"
+    },
+    {
+        "id": 5,
+        "title": "Memoria RAM Patriot RGB 8GB DDR4 3200Mhz",
+        "price": 9000,
+        "category": "memorias",
+        "description": "Con su tecnología DDR4, mejorará el desempeño de tu equipo, ya que aumentará la fluidez y la velocidad en la transferencia de datos ¡Optimizá al máximo el rendimiento de tu computadora y reducí el consumo energético!\nEsta memoria de formato DIMM es ideal para tu Computadoras de escritorio. ¡Instalala y comenzá a disfrutar de un óptimo funcionamiento!",
+        "stock": 23,
+        "pictureUrl": "/assets/images/ram_patriot_8gb_ddr4_3200mhz.png"
+    },
+    {
+        "id": 6,
+        "title": "Procesador Intel I3 4.3GHz",
+        "price": 23000,
+        "category": "procesadores",
+        "description": "Productividad y entretenimiento, todo disponible en tu computadora de escritorio. La superioridad tecnológica de INTEL es un beneficio para todo tipo de profesionales. Asegura el mejor rendimiento de las aplicaciones, de la transferencia de datos y la conexión con otros elementos tecnológicos.\nEn este producto, encontrarás los núcleos, que son los encargados de ejecutar las instrucciones y actividades que le asignás a tu dispositivo. Estos tienen relación directa con dos elementos: los hilos y el modelo. Por lo tanto, a la hora de elegir un procesador, es importante que valores los tres en su conjunto.",
+        "stock": 10,
+        "pictureUrl": "/assets/images/procesador_inte_i3_43ghz.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Mouse Redragon Invader RGB",
+        "price": 2000,
+        "category": "periféricos",
+        "description": "Con más de 20 años de experiencia en fabricación de productos, Redragon innova día a día en diseño y calidad. Su objetivo es producir equipamiento de alta gama para jugadores, con excelentes prestaciones y a un precio accesible. Los mouses Redragon son adecuados para todas las ocasiones, ya sea para entretenerse en el hogar o usarlo en el trabajo. Experimentá el diseño cómodo y elegante de este dispositivo.\nEl mouse de juego te ofrecerá la posibilidad de marcar la diferencia y sacar ventajas en tus partidas. Su conectividad y sensor suave ayudará a que te desplaces rápido por la pantalla.",
+        "stock": 1,
+        "pictureUrl": "/assets/images/mouse_redradog_invader_rgb.jpg"
+    }
+]

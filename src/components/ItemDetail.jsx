@@ -1,16 +1,14 @@
-function ItemDetail({ title, price, description, pictureUrl }) {
+function ItemDetail({ item }) {
     return (
         <>
-            <div className="itemDetail container-fluid d-flex align-items-center gap-2">
-                <div>
-                    <img src={pictureUrl} alt={title} />
+            <div className="container-fluid d-flex gap-5">
+                <div className="col text-end shadow">
+                    <img src={item.pictureUrl} alt={item.title} />
                 </div>
-                <div>
-                    <h4>{title}</h4>
-                    <p>{description}</p>
-                </div>
-                <div>
-                    ${price}
+                <div className="col">
+                    <h1>{item.title}</h1>
+                    <p align="justify">{item.description}</p>
+                    <p className="fs-3 text-white text-end mt-4"><span className="background-color-primary p-2 rounded-3">${item.price}</span></p>
                 </div>
             </div>
         </>
