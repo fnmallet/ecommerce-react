@@ -4,6 +4,7 @@ import NavBar from './components/NavBar.jsx'
 import Footer from './components/Footer.jsx'
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import Cart from './components/Cart';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
@@ -30,6 +31,12 @@ function App() {
               path="/item/:id"
               element={
                 <ItemDetailContainer />
+              }
+            />
+                        <Route
+              path="/cart"
+              element={
+                <Cart />
               }
             />
             <Route path='/*' element={<Navigate to='/' />} />

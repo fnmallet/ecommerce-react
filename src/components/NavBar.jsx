@@ -36,11 +36,3 @@ function NavBar() {
 };
 
 export default NavBar;
-
-/*                     <li className="nav-item"><Link to={`category/${categoryId}`} className="nav-link text-white">Almacenamiento</Link></li>
-                    <li className="nav-item"><Link to={`category/${categoryId}`} className="nav-link text-white">Fuentes</Link></li>
-                    <li className="nav-item"><Link to={`category/${categoryId}`} className="nav-link text-white">Gabinetes</Link></li>
-                    <li className="nav-item"><Link to={`category/${categoryId}`} className="nav-link text-white">Memorias</Link></li>
-                    <li className="nav-item"><Link to={`category/${categoryId}`} className="nav-link text-white">Placas de Video</Link></li>
-                    <li className="nav-item"><Link to={`category/${categoryId}`} className="nav-link text-white">Procesadores</Link></li>
-*/
