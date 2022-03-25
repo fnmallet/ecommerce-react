@@ -1,14 +1,15 @@
 import ItemCount from "./ItemCount"
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from "./CartContext";
 
 function ItemDetail({ item }) {
     const [isReadyToBuy, setIsReadyToBuy] = useState(false);
-    const [quantity, setQuantity] = useState(false);
+    const { addItem } = useCartContext();
 
-    function onAdd(quantityToAdd) {
-        setQuantity(quantity);
+    function onAdd(quantity) {
         setIsReadyToBuy(true);
+        addItem(item ,quantity);
     }
 
     return (
