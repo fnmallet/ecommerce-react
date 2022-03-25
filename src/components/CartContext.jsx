@@ -8,15 +8,17 @@ export function CartContextProvider({ children }) {
     const [items, setItems] = useState([]);
 
     function addItem(product, quantity) {
-        if(isInCart(product.id)) {
-            removeItem(product.id);  
-        };
-        setItems([...items, {product: product, quantity: quantity}]);
-    };
+        let itemsAfterRemove = items.slice();
 
-    function removeItem(productId) {
-        items.splice(items.indexOf((item) => item.product.id === productId), 1)
-    }
+        function removeItem(productId) {
+            itemsAfterRemove.splice(items.findIndex((item) => item.product.id === productId), 1);
+        }
+
+        if(isInCart(product.id)) {
+            removeItem(product.id);
+        };
+        setItems([...itemsAfterRemove, {product: product, quantity: quantity}]);
+    };
 
     function clear() {
         setItems([]);
@@ -26,10 +28,7 @@ export function CartContextProvider({ children }) {
         return items.find(item => item.product.id === productId) ? true : false;
     }
 
-    useEffect(() => {
-        console.log(items)
-    })
-
+    console.log(items)
     return (
         <CartContext.Provider value={{addItem}}>{children}</CartContext.Provider>
     );
