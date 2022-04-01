@@ -18,7 +18,7 @@ function ItemListContainer() {
             getItems()
                 .then((response) => { return response.json() })
                 .then((data) => {
-                    setTimeout(() => { setItems(data); setIsItemsLoaded(true); }, 2000);
+                    setTimeout(() => { setItems(data); setIsItemsLoaded(true); }, 0);
             }).catch(error => console.log(error));
         }, []);
 

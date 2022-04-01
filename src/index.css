@@ -1,6 +1,8 @@
 :root {
   --color-primary: #0466c8;
   --color-white: #f8f9fa;
+  --color-red: #D92A1E;
+  --color-green: #C5D91E;
   --footer-height: 150px;
 }
 
@@ -31,8 +33,16 @@ footer {
   right: 20px;
 }
 
+.cartWidgetLink {
+  height: 40px;
+}
+
 .background-color-primary {
   background-color: var(--color-primary);
+}
+
+.background-color-green {
+  background-color: var(--color-green);
 }
 
 .text-color-primary {
@@ -65,6 +75,36 @@ footer {
 
 .mainContainer {
   min-height: calc(100vh - var(--footer-height));
+}
+
+.cartProductRow:not(:last-child) {
+  border-bottom: 2px solid gray;
+}
+
+.cartProductRow button {
+  color: var(--color-red);
+}
+
+.cartProductRow button:hover {
+  color: var(--color-red);
+  filter: brightness(150%)
+}
+
+.cartProductRow button:focus {
+  box-shadow: none;
+}
+
+.cartProductRowHeader {
+  border-bottom: 4px solid var(--color-green);
+}
+
+.cartCounter {
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 12px;
+  position: relative;
+  right: 12px;
+  top: 10px;
 }
 
 /* Loader */

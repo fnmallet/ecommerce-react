@@ -9,7 +9,7 @@ function ItemDetail({ item }) {
 
     function onAdd(quantity) {
         setIsReadyToBuy(true);
-        addItem(item ,quantity);
+        addItem(item, quantity);
     }
 
     return (
@@ -27,7 +27,7 @@ function ItemDetail({ item }) {
                             <p className="text-white fs-4"><span className="background-color-primary p-2 rounded-3">${item.price}</span></p>
                         </div>
                         <div className="col-8 d-flex flex-column gap-2">
-                            { isReadyToBuy ? <Link to="/cart"><button className="btn btn-primary w-100">Terminar compra</button></Link> : <ItemCount stock={item.stock} initial="1" onAdd={ onAdd }/> }
+                            { isReadyToBuy ? <Link to="/cart"><button className="btn btn-primary background-color-primary w-100">Terminar compra</button></Link> : <ItemCount stock={item.stock} initial="1" onAdd={ onAdd }/> }
                         </div>
                     </div>
                 </div>

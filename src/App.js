@@ -35,7 +35,7 @@ function App() {
                     <ItemDetailContainer />
                   }
                 />
-                            <Route
+                <Route
                   path="/cart"
                   element={
                     <Cart />

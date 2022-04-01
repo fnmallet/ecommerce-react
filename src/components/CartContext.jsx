@@ -1,35 +1,42 @@
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useContext } from "react";
 
 const CartContext = createContext();
 
 export const useCartContext = () => useContext(CartContext);
 
 export function CartContextProvider({ children }) {
-    const [items, setItems] = useState([]);
+    const [cartList, setCartList] = useState([]);
 
     function addItem(product, quantity) {
-        let itemsAfterRemove = items.slice();
-
-        function removeItem(productId) {
-            itemsAfterRemove.splice(items.findIndex((item) => item.product.id === productId), 1);
-        }
-
         if(isInCart(product.id)) {
-            removeItem(product.id);
-        };
-        setItems([...itemsAfterRemove, {product: product, quantity: quantity}]);
+            const items = cartList.slice();
+            for(const item of items) { 
+                if(item.product.id === product.id){
+                    item.quantity += quantity;
+                    break;
+                }
+            };
+            setCartList(items);
+        } else {
+            setCartList([...cartList, {product: product, quantity: quantity}]);
+        }
     };
 
+    function removeItem(productId) {
+        let newCartList = cartList.slice()
+        newCartList.splice(cartList.findIndex((item) => item.product.id === productId), 1 );
+        setCartList(newCartList);
+    }
+
     function clear() {
-        setItems([]);
+        setCartList([]);
     }
 
     function isInCart(productId) {
-        return items.find(item => item.product.id === productId) ? true : false;
+        return cartList.find(item => item.product.id === productId) ? true : false;
     }
 
-    console.log(items)
     return (
-        <CartContext.Provider value={{addItem}}>{children}</CartContext.Provider>
+        <CartContext.Provider value={{addItem, cartList, removeItem}}>{children}</CartContext.Provider>
     );
 };

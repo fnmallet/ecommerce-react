@@ -15,13 +15,12 @@
         "category": "almacenamiento",
         "description": "Western Digital es una marca de renombre mundial en almacenamiento de datos con la cual podés crear, experimentar y guardar contenidos a través de una amplia gama de dispositivos.\nLa alta seguridad y rendimiento que brindan sus unidades la convierten en una de las empresas más elegidas del mercado. El WD Blue WDS500G2B0A está adaptado para que puedas acceder de forma rápida a tus documentos digitales gracias a su tecnología en estado sólido.",
         "stock": 11,
-        "pictureUrl": "/assets/images/ssd_wd_blue_500gb.png",
-        "pictureUrlSmall": "/assets/images/ssd_wd_blue_500gb.png"
+        "pictureUrl": "/assets/images/ssd_wd_blue_500gb.png"
     },
     {
         "id": 2,
         "title": "Monitor LG LED 20 20MK400H-B VGA/HDMI",
-        "price": 500,
+        "price": 25000,
         "category": "monitores",
         "description": "LG busca entender a los usuarios para ofrecerles óptimas soluciones y nuevas experiencias a través de la evolución tecnológica. Disfrutá de la perfecta combinación de diseño, calidad y rendimiento que la empresa te ofrece en este monitor.\nCon tu pantalla LED no solo ahorrás energía, ya que su consumo es bajo, sino que vas a ver colores nítidos y definidos en tus películas o series favoritas.\nUna experiencia visual de calidad\nSus 19.5\" te van a resultar ideales en tu vida diaria, ya sea para estudiar o trabajar. Asimismo, su resolución de 1366 x 768 te permite disfrutar de momentos únicos gracias a una imagen de alta fidelidad. Una de sus virtudes es que posee pantalla antirreflejo, de esta manera no verás reflejado lo que está detrás de vos y vas a evitar forzar tu vista para enfocar el contenido. Su tiempo de respuesta de 2 ms lo hace ideal para gamers y cinéfilos porque es capaz de mostrar imágenes en movimiento sin halos o bordes borrosos.",
         "stock": 5,
