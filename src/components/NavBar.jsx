@@ -1,9 +1,9 @@
 import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom';
-import { useProductsContext } from './ProductsContext';
+import { useCategoriesContext } from './CategoriesContext';
 
 function NavBar() {
-    const { categories, isCategoriesLoaded } = useProductsContext();
+    const { categories, isCategoriesLoaded } = useCategoriesContext();
 
     return (
         <nav className="navbar navbar-expand-xl navbar-light background-color-primary pt-3 pb-3">

@@ -7,13 +7,13 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { CartContextProvider } from './components/CartContext';
-import { ProductsContextProvider } from './components/ProductsContext';
+import { CategoriesContextProvider } from './components/CategoriesContext';
 
 function App() {
   return (
     <BrowserRouter>
       <CartContextProvider>
-        <ProductsContextProvider>
+        <CategoriesContextProvider>
           <div className="bg-light">
             <div className="mainContainer">
               <Header />
@@ -48,7 +48,7 @@ function App() {
             </div>
             <Footer />
           </div>
-        </ProductsContextProvider>
+        </CategoriesContextProvider>
       </CartContextProvider>
     </BrowserRouter>
   );
