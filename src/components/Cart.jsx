@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "./CartContext";
+import ItemCount from "./ItemCount";
 
 function Cart() {
-    const { cartList, removeItem } = useCartContext();
+    const { cartList, removeItem, getTotalPrice, clearCart, getSubtotalPrice } = useCartContext();
 
     return(
         <>
@@ -33,10 +34,10 @@ function Cart() {
                                     {item.product.title}
                                 </div>
                                 <div className="col-1 d-flex align-items-center fw-bold justify-content-center">
-                                    {item.quantity}
+                                    <ItemCount stock={item.product.stock} initial={item.quantity} hasAddToCartButton={ false } item={item}/>
                                 </div>
                                 <div className="col-2 d-flex align-items-center fw-bold justify-content-center">
-                                    ${item.product.price * item.quantity}
+                                    ${getSubtotalPrice(item)}
                                 </div>
                                 <div className="col-1 d-flex align-items-center">
                                     <button className="btn" onClick={() => {removeItem(item.product.id)}}>
@@ -56,10 +57,18 @@ function Cart() {
                                 Total: 
                             </div>
                             <div className="col-2 d-flex align-items-center fw-bold justify-content-center">
-                                ${cartList.reduce((acc, current) => { return acc + current.quantity * current.product.price }, 0)}
+                                ${getTotalPrice()}
                             </div>
                             <div className="col-1 d-flex align-items-center">
                             </div>
+                        </div>
+                        <div className="d-flex justify-content-center gap-3">
+                            <Link to="/Cart" className="d-inline-flex">
+                                <button className="btn btn-primary background-color-primary mt-5 p-3" onClick={clearCart}>Vaciar carrito</button>
+                            </Link>
+                            <Link to="/" className="d-inline-flex">
+                                <button className="btn btn-primary background-color-primary mt-5 p-3">Seguir comprando</button>
+                            </Link>
                         </div>
                     </div> :
                     <div className="d-flex flex-column text-center">

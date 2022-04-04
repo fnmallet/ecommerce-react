@@ -1,17 +1,25 @@
 import { useState } from "react";
+import { useCartContext } from "./CartContext";
 
-function ItemCount({ stock, initial, onAdd }) {
+function ItemCount({ stock, initial, onAdd, hasAddToCartButton, item }) {
     const [amount, setAmount] = useState(parseInt(initial));
+    const { setItemQuantity, addNewProductToCart, removeProductFromCart } = useCartContext();
 
     function add() {
         if(amount < stock) {
-            setAmount(amount + 1);
+            const newAmount = amount + 1;
+            setAmount(newAmount);
+            setItemQuantity(item, newAmount);
+            addNewProductToCart();
         };
     };
 
     function subtract() {
         if(amount > 1) {
-            setAmount(amount - 1);
+            const newAmount = amount - 1;
+            setAmount(newAmount);
+            setItemQuantity(item, newAmount);
+            removeProductFromCart();
         };
     };
 
@@ -33,7 +41,11 @@ function ItemCount({ stock, initial, onAdd }) {
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                     </svg>
                 </button>
-                <button type="button" className="btn btn-outline-primary w-100" onClick={ addToCart }>Agregar al carrito</button>
+                { hasAddToCartButton ? 
+                        <button type="button" className="btn btn-outline-primary w-100" onClick={ addToCart }>Agregar al carrito</button>
+                    :
+                        <></>
+                }
             </div>  
         </div>
     );
