@@ -110,17 +110,17 @@ function Form() {
                         <form>
                             <div className="mb-3">
                                 <label className="form-label">Nombre*</label>
-                                <input type="text" onChange={nameChange}className="form-control" required />
+                                <input type="text" onChange={nameChange}className="form-control" />
                                 <p className="text-danger" style={nameError ? {display: "block"} : {display: "none"}}>Debe ingresar un nombre</p>
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Email*</label>
-                                <input type="email" className="form-control" onChange={emailChange} required />
+                                <input type="email" className="form-control" onChange={emailChange} />
                                 <p className="text-danger" style={emailError ? {display: "block"} : {display: "none"}}>Debe ingresar una dirección de email</p>
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Teléfono*</label>
-                                <input type="number" className="form-control" onChange={phoneChange} required />
+                                <input type="number" className="form-control" onChange={phoneChange} />
                                 <p className="text-danger" style={phoneError ? {display: "block"} : {display: "none"}}>Debe ingresar un número de teléfono</p>
                             </div>
                             <div className="d-flex justify-content-center gap-3">
