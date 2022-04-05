@@ -40,9 +40,6 @@ function Form() {
         }
         
         if(!nameError && !emailError && !phoneError) {
-            setNameError(false);
-            setEmailError(false);
-            setPhoneError(false);
             setIsLoading(true);
 
             let order = {};
