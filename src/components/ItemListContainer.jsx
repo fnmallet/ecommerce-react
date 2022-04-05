@@ -13,6 +13,7 @@ function ItemListContainer() {
         setIsProductsLoaded(false);
         const db = getFirestore();
         let queryCollectionProducts = collection(db, 'products');
+        queryCollectionProducts = query(queryCollectionProducts, where("stock", ">", 0));
         if(category)
             queryCollectionProducts = query(queryCollectionProducts, where("category", "==", category));
         getFromDatabase(queryCollectionProducts, setProducts, setIsProductsLoaded);

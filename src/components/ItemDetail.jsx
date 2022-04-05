@@ -22,9 +22,9 @@ function ItemDetail({ item }) {
                     <h1>{item.title}</h1>
                     <p align="justify">{item.description}</p>
 
-                    <div className="row pt-3">
+                    <div className="row pt-3 align-items-center ">
                         <div className="col-4">
-                            <p className="text-white fs-4"><span className="background-color-primary p-2 rounded-3">${item.price}</span></p>
+                            <p className="text-white fs-4 mb-0"><span className="background-color-primary p-2 rounded-3">${item.price}</span></p>
                         </div>
                         <div className="col-8 d-flex flex-column gap-2">
                             { isReadyToBuy ?

@@ -63,11 +63,11 @@ function Cart() {
                             </div>
                         </div>
                         <div className="d-flex justify-content-center gap-3">
-                            <Link to="/Cart" className="d-inline-flex">
+                            <Link to="/cart" className="d-inline-flex">
                                 <button className="btn btn-primary background-color-primary mt-5 p-3" onClick={clearCart}>Vaciar carrito</button>
                             </Link>
-                            <Link to="/" className="d-inline-flex">
-                                <button className="btn btn-primary background-color-primary mt-5 p-3">Seguir comprando</button>
+                            <Link to="/form" className="d-inline-flex">
+                                <button className="btn btn-primary background-color-primary mt-5 p-3">Finalizar Compra</button>
                             </Link>
                         </div>
                     </div> :

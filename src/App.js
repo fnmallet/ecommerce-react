@@ -7,48 +7,52 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { CartContextProvider } from './components/CartContext';
-import { CategoriesContextProvider } from './components/CategoriesContext';
+import Form from './components/Form';
 
 function App() {
   return (
     <BrowserRouter>
       <CartContextProvider>
-        <CategoriesContextProvider>
-          <div className="bg-light">
-            <div className="mainContainer">
-              <Header />
-              <NavBar />
-              <Routes>
+        <div className="bg-light">
+          <div className="mainContainer">
+            <Header />
+            <NavBar />
+            <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <ItemListContainer />
+                  }
+                />
+                <Route
+                  path="/category/:category"
+                  element={
+                    <ItemListContainer />
+                  }
+                />
+                <Route
+                  path="/product/:id"
+                  element={
+                    <ItemDetailContainer />
+                  }
+                />
+                <Route
+                  path="/cart"
+                  element={
+                    <Cart />
+                  }
+                />
                   <Route
-                    path="/"
-                    element={
-                      <ItemListContainer />
-                    }
-                  />
-                  <Route
-                    path="/category/:category"
-                    element={
-                      <ItemListContainer />
-                    }
-                  />
-                  <Route
-                    path="/product/:id"
-                    element={
-                      <ItemDetailContainer />
-                    }
-                  />
-                  <Route
-                    path="/cart"
-                    element={
-                      <Cart />
-                    }
-                  />
-                  <Route path='/*' element={<Navigate to='/' />} />
-              </Routes>
-            </div>
-            <Footer />
+                  path="/form"
+                  element={
+                    <Form />
+                  }
+                />
+                <Route path='/*' element={<Navigate to='/' />} />
+            </Routes>
           </div>
-        </CategoriesContextProvider>
+          <Footer />
+        </div>
       </CartContextProvider>
     </BrowserRouter>
   );

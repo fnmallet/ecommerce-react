@@ -1,9 +1,25 @@
 import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom';
-import { useCategoriesContext } from './CategoriesContext';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 function NavBar() {
-    const { categories, isCategoriesLoaded } = useCategoriesContext();
+    const [categories, setCategories] = useState([]);
+    const [isCategoriesLoaded, setIsCategoriesLoaded] = useState(false);
+
+    useEffect(() => {
+        const db = getFirestore();
+        const queryCollectionCategories = collection(db, 'categories');
+        getFromDatabase(queryCollectionCategories, setCategories, setIsCategoriesLoaded);
+    }, []);
+
+    function getFromDatabase(query, setItems, setLoaded) {
+        getDocs(query)
+            .then(response => setItems( response.docs.map(item => ( {id: item.id, ...item.data()}))))
+            .catch(error => console.log(error))
+            .finally(()=> setLoaded(true));
+    }
 
     return (
         <nav className="navbar navbar-expand-xl navbar-light background-color-primary pt-3 pb-3">

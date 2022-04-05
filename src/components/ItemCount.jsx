@@ -9,8 +9,11 @@ function ItemCount({ stock, initial, onAdd, hasAddToCartButton, item }) {
         if(amount < stock) {
             const newAmount = amount + 1;
             setAmount(newAmount);
-            setItemQuantity(item, newAmount);
-            addNewProductToCart();
+            if(!hasAddToCartButton)
+            {
+                addNewProductToCart();
+                setItemQuantity(item, newAmount);
+            }
         };
     };
 
@@ -18,8 +21,11 @@ function ItemCount({ stock, initial, onAdd, hasAddToCartButton, item }) {
         if(amount > 1) {
             const newAmount = amount - 1;
             setAmount(newAmount);
-            setItemQuantity(item, newAmount);
-            removeProductFromCart();
+            if(!hasAddToCartButton)
+            {
+                removeProductFromCart();
+                setItemQuantity(item, newAmount);
+            }
         };
     };
 

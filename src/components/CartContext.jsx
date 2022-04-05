@@ -34,6 +34,7 @@ export function CartContextProvider({ children }) {
 
     function clearCart() {
         setCartList([]);
+        setTotalProductsInCart(0);
     }
 
     function isInCart(productId) {
@@ -45,7 +46,7 @@ export function CartContextProvider({ children }) {
     }
 
     function setItemQuantity(item, quantity) {
-        item.quantity = quantity;
+        cartList.find(cartItem => cartItem.id === item.id).quantity = quantity;
     }
 
     function getSubtotalPrice(item) {
