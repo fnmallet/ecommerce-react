@@ -29,7 +29,7 @@ function ItemDetail({ item }) {
                         <div className="col-8 d-flex flex-column gap-2">
                             { isReadyToBuy ?
                                 <Link to="/cart">
-                                    <button className="btn btn-primary background-color-primary w-100">Terminar compra</button>
+                                    <button className="btn btn-primary background-color-primary w-100 fs-6">Terminar compra</button>
                                 </Link> 
                             :
                                 <ItemCount stock={item.stock} initial="1" onAdd={ onAdd } hasAddToCartButton={ true }/> }

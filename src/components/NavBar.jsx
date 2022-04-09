@@ -27,9 +27,9 @@ function NavBar() {
 
 
     return (
-        <nav className="navbar navbar-expand-xl navbar-light background-color-primary pt-3 pb-3">
+        <nav className="navbar navbar-expand navbar-light background-color-primary pt-3 pb-3">
             <div className="collapse navbar-collapse justify-content-center" >
-                <ul className="navbar-nav mb-2 mb-lg-0 gap-5">
+                <ul className="navbar-nav mb-2 mb-lg-0 gap-5 flex-wrap justify-content-center">
                     { !isCategoriesLoaded ? 
                             <></>
                         :
