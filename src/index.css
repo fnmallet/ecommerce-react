@@ -61,6 +61,10 @@ footer {
   border-bottom: 16px solid var(--color-white);
 }
 
+a.active {
+  font-weight: bold;
+}
+
 .card {
   width: 18rem;
 }

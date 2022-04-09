@@ -1,8 +1,8 @@
 import CartWidget from './CartWidget'
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, query, orderBy } from 'firebase/firestore';
 
 function NavBar() {
     const [categories, setCategories] = useState([]);
@@ -10,16 +10,21 @@ function NavBar() {
 
     useEffect(() => {
         const db = getFirestore();
-        const queryCollectionCategories = collection(db, 'categories');
+        let queryCollectionCategories = collection(db, 'categories');
+        queryCollectionCategories = query(queryCollectionCategories, orderBy('category'));
         getFromDatabase(queryCollectionCategories, setCategories, setIsCategoriesLoaded);
+        
     }, []);
 
     function getFromDatabase(query, setItems, setLoaded) {
         getDocs(query)
             .then(response => setItems( response.docs.map(item => ( {id: item.id, ...item.data()}))))
             .catch(error => console.log(error))
-            .finally(()=> setLoaded(true));
+            .finally(()=> {
+                setLoaded(true);
+            });
     }
+
 
     return (
         <nav className="navbar navbar-expand-xl navbar-light background-color-primary pt-3 pb-3">
@@ -28,11 +33,16 @@ function NavBar() {
                     { !isCategoriesLoaded ? 
                             <></>
                         :
-                            categories.map((category) =>
-                                <li className="nav-item" key={ category.id }>
-                                    <Link to={`category/${category.category}`} className="nav-link text-white text-capitalize">
-                                        {category.category}
-                                    </Link>
+                            categories.map((categoryItem) =>
+                                <li className="nav-item" key={ categoryItem.id }>
+                                    <NavLink to={`category/${categoryItem.category}`} className={"nav-link text-white text-capitalize"} activeClassName="active">
+                                        {
+                                            categoryItem.categoryCorrection ?   
+                                                categoryItem.categoryCorrection
+                                                :
+                                                categoryItem.category
+                                        }
+                                    </NavLink>
                                 </li>)
                     }
                 </ul>
