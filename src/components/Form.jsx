@@ -11,45 +11,54 @@ function Form() {
     const [orderId, setOrderId] = useState();
     const [clientName, setClientName] = useState("");
     const [clientEmail, setClientEmail] = useState("");
+    const [clientEmailConfirmation, setClientEmailConfirmation] = useState("");
     const [clientPhone, setClientPhone] = useState("");
+    const [emailError, setEmailError] = useState(false);
 
-    async function generateOrder() {       
-        setIsLoading(true);
 
-        let order = {};
-        const db = getFirestore();
-        const batch = writeBatch(db);
-        const queryCollectionOrders = collection(db, 'orders');
-        const queryCollectionProducts = collection(db, 'products');
+    async function generateOrder(e) {
+        e.preventDefault();
+        if(clientEmail === clientEmailConfirmation) {
+            setIsLoading(true);
+            setEmailError(false);
 
-        order.buyer = {name: clientName, email: clientEmail, phone: clientPhone};
+            let order = {};
+            const db = getFirestore();
+            const batch = writeBatch(db);
+            const queryCollectionOrders = collection(db, 'orders');
+            const queryCollectionProducts = collection(db, 'products');
 
-        order.items = cartList.map((item) => {
-            const id = item.product.id;
-            const title = item.product.title;
-            const price = item.product.price;
-            const quantity = item.quantity;
+            order.buyer = {name: clientName, email: clientEmail, phone: clientPhone};
 
-            return {id, title, price, quantity};
-        });
-        order.date = Timestamp.fromDate(new Date());
-        order.total = getTotalPrice();
+            order.items = cartList.map((item) => {
+                const id = item.product.id;
+                const title = item.product.title;
+                const price = item.product.price;
+                const quantity = item.quantity;
 
-        await addDoc(queryCollectionOrders, order)
-            .then(resp => setOrderId(resp.id));
-        
-        const queryUpdateStock = await query(queryCollectionProducts,
-            where(documentId(),
-            'in',
-            order.items.map(item => item.id ))
-        );
-        await getDocs(queryUpdateStock)
-            .then(resp => resp.docs.forEach(res => batch.update(res.ref, {stock: res.data().stock - cartList.find(item => item.product.id === res.id).quantity})));
+                return {id, title, price, quantity};
+            });
+            order.date = Timestamp.fromDate(new Date());
+            order.total = getTotalPrice();
 
-        batch.commit();
-        clearCart();
-        setIsLoading(false);
-        setIsFinished(true);
+            await addDoc(queryCollectionOrders, order)
+                .then(resp => setOrderId(resp.id));
+            
+            const queryUpdateStock = await query(queryCollectionProducts,
+                where(documentId(),
+                'in',
+                order.items.map(item => item.id ))
+            );
+            await getDocs(queryUpdateStock)
+                .then(resp => resp.docs.forEach(res => batch.update(res.ref, {stock: res.data().stock - cartList.find(item => item.product.id === res.id).quantity})));
+
+            batch.commit();
+            clearCart();
+            setIsLoading(false);
+            setIsFinished(true);
+        } else {
+            setEmailError(true);
+        }
     }
 
     function nameChange(e) {
@@ -58,6 +67,10 @@ function Form() {
 
     function emailChange(e) {
         setClientEmail(e.target.value);
+    }
+
+    function emailConfirmationChange(e) {
+        setClientEmailConfirmation(e.target.value);
     }
 
     function phoneChange(e) {
@@ -73,7 +86,7 @@ function Form() {
             (isFinished ? 
                     <div className="d-flex flex-column pt-5 justify-content-center gap-5">
                         <h2 className="text-center">Has finalizado la compra</h2>
-                        <h3 className="text-center">Id de la orden: {orderId} </h3>
+                        <h3 className="text-center">Id de la orden: {orderId}</h3>
                     </div>
                 :
                     <div className="container mt-5 mb-5 w-50 d-flex flex-column gap-3">
@@ -88,11 +101,14 @@ function Form() {
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Confirmar Email*</label>
-                                <input type="email" className="form-control" onChange={emailChange} required />
+                                <input type="email" className="form-control" onChange={emailConfirmationChange} required />
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Teléfono*</label>
                                 <input type="tel" className="form-control" onChange={phoneChange} required />
+                            </div>
+                            <div className={"mb-3 text-danger" + (emailError ? " d-block" : " d-none")}>
+                                <p>Las direcciones de email ingresadas deben ser iguales.</p>
                             </div>
                             <div className="d-flex justify-content-center gap-3">
                                 <Link to="/cart" className="d-inline-flex">
