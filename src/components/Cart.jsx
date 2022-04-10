@@ -8,7 +8,7 @@ function Cart() {
     return(
         <>
             {
-                cartList.length !== 0 ?
+                cartList.length > 0 ?
                     <div className="container mt-5 mb-5 w-50 d-flex flex-column gap-3">
                         <div className="row cartProductRowHeader">
                             <div className="col-2">

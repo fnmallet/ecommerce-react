@@ -46,7 +46,7 @@ export function CartContextProvider({ children }) {
     }
 
     function setItemQuantity(item, quantity) {
-        cartList.find(cartItem => cartItem.id === item.id).quantity = quantity;
+        cartList.find(cartItem => cartItem.product.id === item.product.id).quantity = quantity;
     }
 
     function getSubtotalPrice(item) {

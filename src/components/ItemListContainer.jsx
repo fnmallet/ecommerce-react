@@ -25,7 +25,7 @@ function ItemListContainer() {
             .catch(error => console.log(error))
             .finally(()=> setLoaded(true));
     }
-console.log(products)
+
     return (
         <>
             { 

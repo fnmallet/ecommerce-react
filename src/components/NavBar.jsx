@@ -35,7 +35,7 @@ function NavBar() {
                         :
                             categories.map((categoryItem) =>
                                 <li className="nav-item" key={ categoryItem.id }>
-                                    <NavLink to={`category/${categoryItem.category}`} className={"nav-link text-white text-capitalize"} activeClassName="active">
+                                    <NavLink to={`category/${categoryItem.category}`} className={({isActive}) => 'nav-link text-white text-capitalize' + (isActive ? ' fw-bold' : '')}>
                                         {
                                             categoryItem.categoryCorrection ?   
                                                 categoryItem.categoryCorrection

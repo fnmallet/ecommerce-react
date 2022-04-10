@@ -77,7 +77,7 @@ function Form() {
                     </div>
                 :
                     <div className="container mt-5 mb-5 w-50 d-flex flex-column gap-3">
-                        <form onSumbit={generateOrder}>
+                        <form onSubmit={generateOrder}>
                             <div className="mb-3">
                                 <label className="form-label">Nombre*</label>
                                 <input type="text" onChange={nameChange}className="form-control" required />
