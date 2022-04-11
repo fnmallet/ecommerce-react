@@ -93,28 +93,28 @@ function Form() {
                         <form onSubmit={generateOrder}>
                             <div className="mb-3">
                                 <label className="form-label">Nombre*</label>
-                                <input type="text" onChange={nameChange}className="form-control" required />
+                                <input type="text" onChange={nameChange}className="form-control" required autofocus="true" tabindex="1" />
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Email*</label>
-                                <input type="email" className="form-control" onChange={emailChange} required />
+                                <input type="email" className="form-control" onChange={emailChange} required tabindex="2" />
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Confirmar Email*</label>
-                                <input type="email" className="form-control" onChange={emailConfirmationChange} required />
+                                <input type="email" className="form-control" onChange={emailConfirmationChange} required tabindex="3" />
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Teléfono*</label>
-                                <input type="tel" className="form-control" onChange={phoneChange} required />
+                                <input type="tel" className="form-control" onChange={phoneChange} required tabindex="4" />
                             </div>
                             <div className={"mb-3 text-danger" + (emailError ? " d-block" : " d-none")}>
                                 <p>Las direcciones de email ingresadas deben ser iguales.</p>
                             </div>
-                            <div className="d-flex justify-content-center gap-3">
+                            <div className="d-flex justify-content-center gap-3 flex-row-reverse">
+                                <button className="btn btn-primary background-color-primary mt-5 p-3" type="submit" tabindex="6">Generar orden</button>
                                 <Link to="/cart" className="d-inline-flex">
-                                    <button className="btn btn-primary background-color-primary mt-5 p-3">Volver</button>
+                                    <button className="btn btn-primary background-color-primary mt-5 p-3" tabindex="5">Volver</button>
                                 </Link>
-                                <button className="btn btn-primary background-color-primary mt-5 p-3" type="submit">Generar orden</button>
                             </div>
                         </form>
                     </div>
