@@ -1,18 +1,26 @@
 # Smartech
 
+Link del sitio: https://bright-mousse-8dcc07.netlify.app/
 ## Acerca de
 Este proyecto es sobre un emprendimiento ficticio de venta online de productos de computación.
-El sitio, es un ecommerce que cuenta con una página principal donde se muestran todos los productos, y estos pueden filtrarse por categorías usando la barra de navegación.
+El sitio, es un ecommerce que cuenta con una página principal donde se muestran todos los productos, y estos pueden filtrarse por categorías usando el panel de navegación.
+Al hacer clic sobre cualquier producto se muestra un detalle del mismo desde donde se puede elegir la cantidad de ese producto que se desea agregar a un carrito, al que se puede agregar más de un tipo de producto.
+Para finalizar la compra, hay que hacer clic sobre el botón "Finalizar compra" en la página del carrito, completar el formulario y luego hacer clic en "Generar orden". A continuación se mostrará una id que corresponde a la orden generada, y se vaciará el carrito, volviendo al estado inicial.
+
+![Gif con las funcionalidades del sitio](https://https://bright-mousse-8dcc07.netlify.app/assets/github/react-ecommerce.gif)
 
 ## Frameworks y bibliotecas
-El proyecto está desarrollado con React y Bootstrap. Además es necesaria la instalación del paquete "react-router-dom".
+El proyecto está desarrollado con React y Bootstrap. Además se utilizan las bibliotecas de "react-router-dom" y "firebase". Para instalar estas dependencias con npm:
+```sh
+npm install react-router-dom
+npm install firebase
+```
 
-## Organización de las carpetas
-En la carpeta "./public/assets" se encuentran todos los archivos de imagenes y archivos json utilizados.
-En la carpeta ".src/components" están todos los componentes de React utilizados.
-
-## Carga de productos y categorías
-Para simular una llamada a una API con todos los productos y categorías, se crearon dos archivos json que contienen todos los datos, y son obtenidos mediante el método fetch de la API Fetch. Además, para simular la demora en la carga de los datos, estas llamadas usan setTimeout.
+## Productos mostrados en el sitio
+La información de todos los productos mostrados en el sitio están almacenados una base de datos de Firebase.
 
 ## Inicio
-Para iniciar el servidor localmente, debe usar el comando "npm start" en la terminal, donde se mostrará la url para que pueda acceder al sitio desde el navegador.
+Para iniciar el servidor localmente, utilizar el siguiente comando:
+```sh
+npm start
+```
