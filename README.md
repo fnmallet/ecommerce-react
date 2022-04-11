@@ -7,7 +7,7 @@ El sitio, es un ecommerce que cuenta con una página principal donde se muestran
 Al hacer clic sobre cualquier producto se muestra un detalle del mismo desde donde se puede elegir la cantidad de ese producto que se desea agregar a un carrito, al que se puede agregar más de un tipo de producto.
 Para finalizar la compra, hay que hacer clic sobre el botón "Finalizar compra" en la página del carrito, completar el formulario y luego hacer clic en "Generar orden". A continuación se mostrará una id que corresponde a la orden generada, y se vaciará el carrito, volviendo al estado inicial.
 
-![Gif con las funcionalidades del sitio](https://https://bright-mousse-8dcc07.netlify.app/assets/github/react-ecommerce.gif)
+![Gif con las funcionalidades del sitio](https://bright-mousse-8dcc07.netlify.app/assets/github/react-ecommerce.gif)
 
 ## Frameworks y bibliotecas
 El proyecto está desarrollado con React y Bootstrap. Además se utilizan las bibliotecas de "react-router-dom" y "firebase". Para instalar estas dependencias con npm:
